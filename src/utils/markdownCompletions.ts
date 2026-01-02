@@ -6,7 +6,7 @@ interface CompletionContext {
   monaco: Monaco
 }
 
-const createCompletionRange = (model: any, position: any, monaco: Monaco) => {
+const createCompletionRange = (model: any, position: any) => {
   const lineContent = model.getLineContent(position.lineNumber)
   const textUntilPosition = lineContent.substring(0, position.column - 1)
   
@@ -50,7 +50,7 @@ const createSuggestion = (
 })
 
 const getMarkdownSuggestions = ({ model, position, monaco }: CompletionContext) => {
-  const range = createCompletionRange(model, position, monaco)
+  const range = createCompletionRange(model, position)
 
   return [
     createSuggestion(
