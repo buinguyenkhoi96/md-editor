@@ -1,6 +1,5 @@
 name = "mdeditor"
 compatibility_date = "2026-01-02"
 
-[site]
-bucket = "./dist"
+pages_build_output_dir = "./dist"
 
