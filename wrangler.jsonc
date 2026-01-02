@@ -1,0 +1,8 @@
+{
+  "name": "mdeditor",
+  "compatibility_date": "2026-01-02",
+  "assets": {
+    "directory": "./dist"
+  }
+}
+
