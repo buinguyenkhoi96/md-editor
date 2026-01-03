@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import Editor from '@monaco-editor/react'
+import LazyMonacoEditor from './LazyMonacoEditor'
 import MarkdownPreview from './MarkdownPreview'
 import { useResizeSplit } from '../hooks/useResizeSplit'
 import { useMonacoEditor } from '../hooks/useMonacoEditor'
@@ -51,7 +51,7 @@ export default function MarkdownEditor({ content, onChange }: MarkdownEditorProp
             className={`editor-pane ${viewMode === 'split' ? 'split' : 'full'}`}
             style={viewMode === 'split' ? { width: `${splitPosition}%` } : {}}
           >
-            <Editor
+            <LazyMonacoEditor
               height="100%"
               defaultLanguage="markdown"
               value={content}
@@ -59,6 +59,14 @@ export default function MarkdownEditor({ content, onChange }: MarkdownEditorProp
               onMount={handleEditorDidMount}
               theme="vs-dark"
               options={editorOptions}
+              loading={<div style={{ 
+                height: '100%', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                color: '#666',
+                fontSize: '14px'
+              }}>Loading editor...</div>}
             />
           </div>
         )}
